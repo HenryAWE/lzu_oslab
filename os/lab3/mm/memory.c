@@ -55,6 +55,10 @@ void free_page(uint64_t addr)
         panic("free_page(): trying to free nonexistent page");
     assert(mem_map[MAP_NR(addr)] != 0,
            "free_page(): trying to free free page");
+
+    // 打印释放的地址
+    kprintf("Page freed at %p\n", (void *)addr);
+
     --mem_map[MAP_NR(addr)];
 }
 
@@ -71,6 +75,10 @@ uint64_t get_free_page(void)
             mem_map[i] = 1;
             uint64_t ret = MEM_START + i * PAGE_SIZE;
             memset((void *)ret, 0, PAGE_SIZE);
+
+            // 打印分配的地址
+            kprintf("Page allocated at %p\n", (void *)ret);
+
             return ret;
         }
     }
