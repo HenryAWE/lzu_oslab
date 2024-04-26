@@ -1,11 +1,11 @@
 echo -e "\033[41;37m 正在安装必要软件包 \033[0m"
 sudo apt update
-sudo apt install -y build-essential gettext pkg-config libgmp-dev libglib2.0-dev python3-dev libpixman-1-dev binutils libgtk-3-dev texinfo make gcc-riscv64-linux-gnu libncurses5-dev ninja-build tmux axel git
+sudo apt install -y build-essential gettext pkg-config libgmp-dev libglib2.0-dev python3-dev libpixman-1-dev binutils libgtk-3-dev texinfo make gcc-riscv64-linux-gnu libncurses5-dev ninja-build tmux git
 echo -e "\033[41;37m 正在下载必要源码包 \033[0m"
 mkdir resource
 cd resource
-axel -n 15 https://download.qemu.org/qemu-6.2.0.tar.xz
-axel -n 15 https://mirror.lzu.edu.cn/gnu/gdb/gdb-11.2.tar.xz
+wget https://download.qemu.org/qemu-6.2.0.tar.xz
+wget https://mirror.lzu.edu.cn/gnu/gdb/gdb-11.2.tar.xz
 echo -e "\033[41;37m 正在解压 \033[0m"
 tar xJf qemu-6.2.0.tar.xz
 tar xJf gdb-11.2.tar.xz
