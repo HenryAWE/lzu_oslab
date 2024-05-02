@@ -34,4 +34,26 @@ void mem_init();
 void free_page(uint64_t addr);
 uint64_t get_free_page(void);
 
+// Buddy system
+/**
+ * @brief 初始化内存分配器
+*/
+void page_alloc_init(void);
+/**
+ * @brief 分配连续的内存页
+ * 
+ * @param count 内存页数量，最多连续分配1024页
+ * @return 指向内存的指针
+*/
+void *page_alloc(size_t count);
+/**
+ * @brief 释放内存页
+ * 
+ * @param p 指向要释放内存页的指针
+ * @param count 要释放的内存页数量
+*/
+void page_free(void *p, size_t count);
+
+void test_page_alloc(void);
+
 #endif
